@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -17,11 +17,18 @@ import { Component, OnInit } from '@angular/core';
     }
   `]
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
+  private debounceTimer?: NodeJS.Timeout;
+
+  onQueryChanged( query:string = '' ) {
+    if ( this.debounceTimer ) clearTimeout( this.debounceTimer );
+
+    this.debounceTimer = setTimeout( () => {
+      console.log('enviar peticion: ', query)
+    }, 1000)
   }
 
 }
