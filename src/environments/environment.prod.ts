@@ -1,3 +1,8 @@
+import { mapbox } from "./mapboxToken";
+
+
+
 export const environment = {
-  production: true
+  production: true,
+  apikey: mapbox.token
 };
