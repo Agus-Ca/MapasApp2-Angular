@@ -79,8 +79,6 @@ export class MapService {
     const bounds = new LngLatBounds();
     coords.forEach( ([ lng, lat ]) => bounds.extend( [lng, lat] ));
 
-    console.log( { kms: route.distance / 1000, duration: route.duration / 60 } );
-
     this.map.fitBounds( bounds, { padding:200 } );
 
     const sourceData: AnySourceData = {
@@ -120,5 +118,4 @@ export class MapService {
       }
     });
   }
-
 }
